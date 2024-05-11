@@ -118,26 +118,27 @@ public class ArvoreAB {
             }
         }
     }
-    
-    private No maior(No temp){
-        if (temp.getDireita() != null){
-           return maior(temp.getDireita());
-        }else{
+
+    private No maior(No temp) {
+        if (temp.getDireita() != null) {
+            return maior(temp.getDireita());
+        } else {
             return temp;
         }
     }
-    private boolean ehGrau2 (No temp) {
+
+    private boolean ehGrau2(No temp) {
         return ((temp.getDireita() != null) && (temp.getEsquerda() != null));
     }
-    
-    private void recRemoveGrau2(No temp, double valor){
-        if((temp.getDireita().getValor() == valor) && ehGrau2(temp.getDireita())){
-            No aux = maior (temp.getEsquerda());
+
+    private void recRemoveGrau2(No temp, double valor) {
+        if ((temp.getDireita().getValor() == valor) && ehGrau2(temp.getDireita())) {
+            No aux = maior(temp.getEsquerda());
             temp.getDireita().setValor(aux.getValor());
+
+        } else if (temp.getEsquerda().getValor() == valor && ehGrau2(temp.getEsquerda())) {
+            No aux = maior(temp.getEsquerda().getEsquerda());
         }
-    }else if(temp.getEsquerda().getValor() == valor && ehGrau2(temp.getEsquerda())){
-        No aux = maior(temp.getEsquerda().getEsquerda());
+
     }
-    
-    
 }
